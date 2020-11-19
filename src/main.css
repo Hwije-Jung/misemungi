@@ -11,6 +11,7 @@
   align-items: center;
   position: fixed;
   top: 0;
+  z-index: 1000;
 }
 
 .changwon_img {
@@ -35,7 +36,7 @@
   font-size: 20px;
   margin-left: 14%;
   margin-top: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   font-weight: 600;
   font-family: gmarket;
 }
@@ -44,19 +45,22 @@
   position: absolute;
   left: 14%;
   top: 90px;
+  cursor: pointer;
+  /* z-index: -1; */
 }
 
 .main_body {
   /* border: 1px solid black; */
-  height: 800px;
+  /* height: 800px; */
   display: flex;
   justify-content: center;
+  flex-direction: row;
   /* margin-top: -20px; */
 }
 
 .body_items {
   /* border: 1px solid black; */
-  height: 800px;
+  /* height: 800px; */
   width: 880px;
   display: flex;
   flex-wrap: wrap;
@@ -64,6 +68,8 @@
 
 .body_items {
   /* border: 1px solid black; */
+  padding-left: 10px;
+
   /* display: flex; */
   /* justify-content: space-between; */
 }
@@ -75,6 +81,7 @@
   height: 160px;
   min-width: 150px;
   min-height: 150px;
+  margin-left: 5px;
   margin-right: 10px;
   margin-bottom: 20px;
   border-radius: 10px;
@@ -101,4 +108,58 @@
 
 .item_text:hover {
   color: white;
+}
+
+.item_bottom_box {
+  /* border: 1px solid black; */
+  display: flex;
+  padding-left: 2px;
+}
+
+.mise_aside {
+  /* border: 1px solid black; */
+  width: 170px;
+  /* height: 800px; */
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 14%;
+}
+
+.mise_item {
+  display: inline-block;
+  /* border: 1px solid black; */
+  width: 160px;
+  height: 160px;
+  min-width: 150px;
+  min-height: 150px;
+  /* margin-right: 10px; */
+  /* margin-bottom: 20px; */
+  border-radius: 10px;
+  border: 3px solid #4b89dc;
+  font-family: gmarket;
+  font-size: 20pt;
+  background-color: #4b89dc;
+  color: white;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sideMenu {
+  font-size: 11pt;
+  height: 50px;
+  border: 3px solid #4b89dc;
+  font-family: gmarket;
+  background-color: white;
+  border-radius: 10px;
+  color: black;
+  margin-top: 20px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.compoBack {
+  position: absolute;
+  right: 14%;
 }
