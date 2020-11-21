@@ -5,6 +5,7 @@ import good from '../marine/good.jpg';
 import middle from '../marine/middle.jpg';
 import sobad from '../marine/sobad.jpg';
 import logo from '../marine/logo.gif';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 class Misenongdo extends Component {
 
@@ -21,6 +22,7 @@ class Misenongdo extends Component {
             pm25Image:logo,
             pm10Text:'...',
             pm25Text:'...',
+            circle:'none',
         };
     }
     search=(e)=>{       //input창에 지역 쓰고 버튼 누르면 발동되는 함수
@@ -29,6 +31,10 @@ class Misenongdo extends Component {
         const body = {
             sidoName: this.props.sidoName	// 현재 시,도이름을 body에 넣는다.
         }
+
+        this.setState({
+            circle:'inline'
+        })
 
         fetch('http://localhost:5000/location',{ // localhost 서버 5000번 포트의 location에게 보낸다.
             method:"post",
@@ -51,6 +57,7 @@ class Misenongdo extends Component {
                 pm25Value:json.list[0].pm25Value,
                 pm10Grade:json.list[0].pm10Grade,
                 pm25Grade:json.list[0].pm25Grade,
+                circle:'none'
             })
 
             if(json.list[0].pm10Grade === '1'){this.setState({pm10Image: good,pm10Text:'좋음'})}
@@ -81,6 +88,9 @@ class Misenongdo extends Component {
                     <div className="mise_title">초미세먼지농도</div>
                     <div className="mise_text">  {this.state.pm25Value} <span className="zisu">(PM2.5)</span></div>
                 </div>
+
+                <CircularProgress color="secondary" style={{display:this.state.circle,marginTop:150,marginLeft:270, position:'absolute'}}/>
+
                 <div className="mise_right">
                     <div className="mise_right_title">미세먼지 등급</div>
                     <div className="mise_right_back">

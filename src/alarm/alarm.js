@@ -5,6 +5,8 @@ import good from '../marine/good.jpg';
 import middle from '../marine/middle.jpg';
 import sobad from '../marine/sobad.jpg';
 import logo from '../marine/logo.gif';
+import { makeStyles } from '@material-ui/core/styles';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 class Alarm extends Component {
     constructor(props) {
@@ -20,8 +22,8 @@ class Alarm extends Component {
             issueGbn:'',
             issueVal:'',
             itemCode:'',
-
             pm10Image:logo,
+            circle:'none',
 
             year:2020,
         };
@@ -33,6 +35,10 @@ class Alarm extends Component {
         const body = {
             year: this.state.year
         }
+
+        this.setState({
+            circle:'inline'
+        })
 
         fetch('http://localhost:5000/alarm',{
             method:"post",
@@ -64,6 +70,7 @@ class Alarm extends Component {
                     itemCode: json.list[i].itemCode,
                     moveName: json.list[i].moveName,
                     issueGbn: json.list[i].issueGbn,
+                    circle:'none'
                 })
 
                 if(json.list[0].pm10Grade === '1'){this.setState({pm10Image: good,pm10Text:'좋음'})}
@@ -90,6 +97,9 @@ class Alarm extends Component {
                     <div className="alarm_title">구별</div>
                     <div className="alarm_text">  {this.state.itemCode} <span className="zisu">(PM2.5)</span></div>
                 </div>
+
+                <CircularProgress color="secondary" style={{display:this.state.circle,marginTop:150,marginLeft:270, position:'absolute'}}/>
+
                 <div className="alarm_right">
                     {/* <div className="alarm_right_title">미세먼지 등급</div>
                     <div className="alarm_right_back">

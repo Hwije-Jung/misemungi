@@ -5,6 +5,7 @@ import good from '../marine/good.jpg';
 import middle from '../marine/middle.jpg';
 import sobad from '../marine/sobad.jpg';
 import logo from '../marine/logo.gif';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 class ozon extends Component {
 
@@ -23,7 +24,7 @@ class ozon extends Component {
 
             tmArea:'',
             dataTime:'',
-
+            circle:'none',
             year:2020,
         };
     }
@@ -34,6 +35,10 @@ class ozon extends Component {
         const body = {
             year: this.state.year
         }
+
+        this.setState({
+            circle:'inline'
+        })
 
         fetch('http://localhost:5000/ozon',{
             method:"post",
@@ -67,6 +72,7 @@ class ozon extends Component {
                     issueVal:json.list[i].issueVal,
                     clearVal:json.list[i].clearVal,
                     maxVal:json.list[i].maxVal,
+                    circle:'none'
                 })
             }
             if(count == 0){
@@ -142,6 +148,9 @@ class ozon extends Component {
 
 
                 </div>
+
+                <CircularProgress color="secondary" style={{display:this.state.circle,marginTop:150,marginLeft:270, position:'absolute'}}/>
+
                 <div className="ozon_right">
 
        
