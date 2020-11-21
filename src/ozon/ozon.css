@@ -1,9 +1,102 @@
 .ozon_main {
   background-color: rgb(239, 247, 255);
+  /* height: 1000px; */
   width: 690px;
   height: 400px;
+  display: flex;
+  flex-direction: row;
+}
+
+.ozon_title {
+  font-size: 12pt;
+  margin-left: 25px;
+  margin-top: 10px;
+  /* color: #4b89dc; */
+  font-family: gmarket;
+  /* font-weight: 600; */
+}
+
+.ozon_text {
+  margin-left: 25px;
+  margin-top: 10px;
+  font-size: 12pt;
+  font-weight: 600;
+  background-color: rgb(253, 245, 207);
+  border-radius: 5px;
+  width: 200px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ozon_text_yellow {
+  margin-left: 25px;
+  margin-top: 10px;
+  font-size: 15pt;
+  font-weight: 600;
+  background-color: rgb(253, 245, 207);
+  border-radius: 5px;
+  width: 200px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ozon_left {
   display: flex;
   flex-direction: column;
   justify-items: start;
   align-items: flex-start;
+  margin-left: 20px;
+  /* border: 1px solid black; */
+}
+
+.ozon_right {
+  display: flex;
+  flex-direction: column;
+  justify-items: start;
+  align-items: flex-start;
+  margin-left: 100px;
+  /* border: 1px solid black; */
+}
+
+.ozon_serchBtn {
+  margin-left: 25px;
+  background-color: #4b89dc;
+  border-radius: 20px;
+  border: 0px;
+  height: 30px;
+  width: 80px;
+  color: white;
+  font-family: gmarket;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.zisu {
+  font-size: 10pt;
+}
+
+.ozon_right_title {
+  font-size: 20pt;
+  /* margin-right: 70px; */
+  margin-top: 20px;
+}
+
+.ozon_right_back {
+  background-color: rgb(253, 245, 207);
+  width: 300px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.ozon_right_text {
+  font-size: 20pt;
 }

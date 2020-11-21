@@ -11,7 +11,7 @@ const yellow = (year, callback) => {       // 시/도 이름을 여기서 받았
     var url = 'http://openapi.airkorea.or.kr/openapi/services/rest/OzYlwsndOccrrncInforInqireSvc/getYlwsndAdvsryOccrrncInfo';
     var queryParams = '?' + encodeURIComponent('ServiceKey') + '=' + serviceKey; /* Service Key*/
     queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /* */
-    queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('100'); /* */
+    queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('200'); /* */
     queryParams += '&' + encodeURIComponent('year') + '=' + encodeURIComponent(year); /* */
     // queryParams += '&' + encodeURIComponent('itemCode') + '=' + encodeURIComponent('PM10'); /* */
     queryParams += '&' + encodeURIComponent('_returnType') + '=' + encodeURIComponent('json') 

@@ -174,6 +174,9 @@ class Main extends React.Component {
             titleText: '미세먼지농도 조회',
             asideOn:'block',
             main_height:500,
+            sideColor1:'#c1d9f8',
+            sideColor2: 'white',
+            sideColor3: 'white'
         })
     }
 

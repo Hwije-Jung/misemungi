@@ -9,11 +9,11 @@
 }
 
 .mise_title {
-  font-size: 20pt;
+  font-size: 15pt;
   margin-left: 20px;
-  margin-top: 10px;
+  margin-top: 20px;
   /* color: #4b89dc; */
-  /* font-family: gmarket; */
+  font-family: gmarket;
   /* font-weight: 600; */
 }
 
@@ -43,6 +43,7 @@
   justify-items: start;
   align-items: flex-start;
   margin-left: 100px;
+  font-family: gmarket;
   /* border: 1px solid black; */
 }
 
@@ -64,9 +65,9 @@
 }
 
 .mise_right_title {
-  font-size: 20pt;
+  font-size: 15pt;
   /* margin-right: 70px; */
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .mise_right_back {
