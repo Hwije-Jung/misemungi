@@ -85,6 +85,7 @@ class ozon extends Component {
                     issueVal:'데이터가 없습니다.',
                     clearVal:'데이터가 없습니다.',
                     maxVal:'데이터가 없습니다.',
+                    circle:'none'
                 })
             }
             }
