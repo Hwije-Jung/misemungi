@@ -95,7 +95,7 @@ class Misenongdo extends Component {
                     <div className="mise_right_title">미세먼지 등급</div>
                     <div className="mise_right_back">
                         <img src={this.state.pm10Image} height="110" width='110' style={{borderRadius:'20px'}}/>
-        <span className="mise_right_text">{this.state.pm10Text}</span>
+                    <span className="mise_right_text">{this.state.pm10Text}</span>
                     </div>
                    
                     <div className="mise_right_title">초미세먼지 등급</div>

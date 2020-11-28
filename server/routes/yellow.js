@@ -3,18 +3,17 @@ const serviceKey = '7rloXxdcpjuUszWhliD8Ge20nEcInTTYOCCzOxtETM3H44poN7Sw7w1%2FS7
 //공공데이터 포털에서 받은 내 서비스키 
 
 var parse = require('json-parse')
-const yellow = (year, callback) => {       // 시/도 이름을 여기서 받았다.
+const yellow = (year, callback) => {       // 연도 데이터를 여기서 받음.
 
     console.log("황사데이타!!!!!!");            //진입햇는지 확인용
     console.log(year);            //진입햇는지 확인용
 
     var url = 'http://openapi.airkorea.or.kr/openapi/services/rest/OzYlwsndOccrrncInforInqireSvc/getYlwsndAdvsryOccrrncInfo';
     var queryParams = '?' + encodeURIComponent('ServiceKey') + '=' + serviceKey; /* Service Key*/
-    queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /* */
-    queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('200'); /* */
-    queryParams += '&' + encodeURIComponent('year') + '=' + encodeURIComponent(year); /* */
-    // queryParams += '&' + encodeURIComponent('itemCode') + '=' + encodeURIComponent('PM10'); /* */
-    queryParams += '&' + encodeURIComponent('_returnType') + '=' + encodeURIComponent('json') 
+    queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /*페이지 넘버 */
+    queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('100'); /*row 수 */
+    queryParams += '&' + encodeURIComponent('year') + '=' + encodeURIComponent(year); /*검색 연도*/
+    queryParams += '&' + encodeURIComponent('_returnType') + '=' + encodeURIComponent('json') //json파일
     
     request(
         {

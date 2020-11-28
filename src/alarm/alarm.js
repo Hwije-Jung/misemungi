@@ -78,6 +78,19 @@ class Alarm extends Component {
                 else if(json.list[0].pm10Grade === '3'){this.setState({pm10Image:bad,pm10Text:'나쁨'})}
                 else{this.setState({pm10Image:sobad,pm10Text:'매우나쁨'})}
             }
+            if(count == 0){
+                this.setState({
+                    issueDate: '데이터가 없습니다.',
+                    issueTime: '데이터가 없습니다.',
+                    clearDate: '데이터가 없습니다.',
+                    issueVal: '데이터가 없습니다.',
+                    clearTime: '데이터가 없습니다.',
+                    itemCode: '데이터가 없습니다.',
+                    moveName: '데이터가 없습니다.',
+                    issueGbn: '데이터가 없습니다.',
+                    circle:'none'
+                })
+            }
             }
             count = 0;
         });
@@ -101,11 +114,6 @@ class Alarm extends Component {
                 <CircularProgress color="secondary" style={{display:this.state.circle,marginTop:150,marginLeft:270, position:'absolute'}}/>
 
                 <div className="alarm_right">
-                    {/* <div className="alarm_right_title">미세먼지 등급</div>
-                    <div className="alarm_right_back">
-                        <img src={this.state.pm10Image} height="110" width='110' style={{borderRadius:'20px'}}/>
-                    <span className="alarm_right_text">{this.state.pm10Text}</span>
-                    </div> */}
 
                     <div className="alarm_title_r" style={{marginTop:50}}>해제 일자</div>
                     <div className="alarm_text_r">  {this.state.issueDate} <span className="zisu">(PM2.5)</span></div>

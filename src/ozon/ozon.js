@@ -102,10 +102,19 @@ class ozon extends Component {
                 console.log('황사지역:'+json.list[0].tmArea);
                 console.log('발령일:'+json.list[0].dataTime);
                 
-                this.setState({
-                    tmArea: json.list[0].tmArea,
-                    dataTime: json.list[0].dataTime
-                })
+
+                if(json.list[0] == undefined){
+                    this.setState({
+                        tmArea: '데이터가 없습니다.',
+                        dataTime: '데이터가 없습니다.'
+                    })
+                }else{
+                    this.setState({
+                        tmArea: json.list[0].tmArea,
+                        dataTime: json.list[0].dataTime
+                    })
+                }
+               
                 }
         );
     }

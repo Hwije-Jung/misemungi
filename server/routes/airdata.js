@@ -1,16 +1,16 @@
 const request = require('request')
 const serviceKey = '7rloXxdcpjuUszWhliD8Ge20nEcInTTYOCCzOxtETM3H44poN7Sw7w1%2FS7ncIWuDUpdt6fM9zcumEz5auRIu8Q%3D%3D'
-//공공데이터 포털에서 받은 내 서비스키 
+//공공데이터 포털에서 받은 나의 서비스키 
 
 var parse = require('json-parse')
-const airdata = (sidoName, callback) => {       // 시/도 이름을 여기서 받았다.
+const airdata = (sidoName, callback) => {       // 시/도 이름을 여기서 받음.
 
     console.log("에어데이타!!!!!!");            //진입햇는지 확인용
 
     const url = 'http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?';
-    //api사용하기 위한 url이다.
+    //api사용하기 위한 url
 
-    //긴 url에 필요한 정보들을 붙여 넣는다.
+    //api를 사용 하기 위한 기본 요청 값 들
     var queryParams = encodeURIComponent('ServiceKey') + '=' + serviceKey   //서비스키
     queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('1');  
     queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1');
@@ -28,9 +28,9 @@ const airdata = (sidoName, callback) => {       // 시/도 이름을 여기서 �
         // console.log(url+queryParams);
         //console.log('Status', response.statusCode);
         //console.log('Headers', JSON.stringify(response.headers));
-        console.log('Reponse received', body);
+        console.log('Reponse received', body);  //데이터 수신 확인용
 
-        callback(undefined,{    //body를 air이름으로 만들어준다.
+        callback(undefined,{    //body를 air이름으로 만들 어줌
             air:body
         })
         });

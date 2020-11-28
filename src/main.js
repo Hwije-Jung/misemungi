@@ -23,19 +23,6 @@ class Main extends React.Component {
             sideColor2:'white',
             sideColor3:'white',
 
-
-
-
-            //주의보,경보
-            inputSido:'경남',
-            issueDate0:'',  //발령날짜
-            issueTime0:'',  //발령시각
-            clearDate0:'',  //발령해제시각
-            clearTime0:'',  //발령해제시각
-            districtName:'',   //구역
-            moveName:'',       //세부구역
-            issueGbn:'',        //
-
             //스위치
             itemOn:'inline',
             miseOn:'none',
@@ -51,117 +38,6 @@ class Main extends React.Component {
             [e.target.name]: e.target.value ,   //  input창 입력값을 바로바로 state값 초기화
         })
         console.log(this.state.location);
-    }
-
-    search=(e)=>{       //input창에 지역 쓰고 버튼 누르면 발동되는 함수
-        e.preventDefault();
-
-        const body = {
-            sidoName: this.state.sidoName		// 현재 시,도이름을 body에 넣는다.
-        }
-
-        fetch('http://localhost:5000/location',{ // localhost 서버 5000번 포트의 location에게 보낸다.
-            method:"post",
-            headers: { "Content-Type":  "application/json" },
-            body: JSON.stringify(body),	// json화 해버리기
-        })
-        .then(res => res.json())    // 서버로부터 받음
-        .then(json => {
-            console.log('측정시간:'+json.list[0].dataTime);     //dataTime (측정시간) 콘솔 출력
-            console.log('측정소:'+json.list[0].stationName);     //dataTime (측정시간) 콘솔 출력
-            console.log('미세먼지:'+json.list[0].pm10Value);    //pm10Value 미세먼지 지수 콘솔출력
-            console.log('초미세먼지:'+json.list[0].pm25Value);    //pm25Value 미세먼지 지수 콘솔출력
-            console.log('미세먼지등급:'+json.list[0].pm10Grade);    //pm25Value 미세먼지 지수 콘솔출력
-            console.log('초미세먼지등급:'+json.list[0].pm25Grade);    //pm25Value 미세먼지 지수 콘솔출력
-            
-
-        });
-    }
-
-    alarm=(e)=>{
-        e.preventDefault();
-
-        const body = {
-            year: this.state.year
-        }
-
-        fetch('http://localhost:5000/alarm',{
-            method:"post",
-            headers: { "Content-Type":  "application/json" },
-            body: JSON.stringify(body),	
-        })
-        .then(res => res.json())    // 서버로부터 받음
-        .then(json => {
-            let count = 0;
-            for(let i=0; i<100;i++){
-                if(json.list[i].districtName === this.state.inputSido && count ==0){
-                count++;
-                console.log('미세먼지발령날짜:'+json.list[i].issueDate);
-                console.log('발령시각:'+json.list[i].issueTime);
-                console.log('해제날짜:'+json.list[i].clearDate);
-                console.log('해제시각:'+json.list[i].clearTime);
-                console.log(json.list[i].itemCode);
-                console.log('발령지역:'+json.list[i].districtName);
-                console.log('상세지역:'+json.list[i].moveName);
-                console.log('발령종류:'+json.list[i].issueGbn);
-                console.log('발령시농도:'+json.list[i].issueVal);
-            }
-            }
-            count = 0;
-        });
-    }
-
-    ozon=(e)=>{
-        e.preventDefault();
-
-        const body = {
-            year: this.state.year
-        }
-
-        fetch('http://localhost:5000/ozon',{
-            method:"post",
-            headers: { "Content-Type":  "application/json" },
-            body: JSON.stringify(body),	
-        })
-        .then(res => res.json())    // 서버로부터 받음
-        .then(json => {
-            let count = 0;
-            for(let i=0; i<100;i++){
-                if(json.list[i].districtName === this.state.inputSido && count ==0){
-                count++;
-                console.log('발령일자:'+json.list[i].dataDate);
-                console.log('발령시각:'+json.list[i].issueTime);
-                console.log('해제시각:'+json.list[i].clearTime);
-                console.log('발령지역:'+json.list[i].districtName);
-                console.log('세부지역:'+json.list[i].moveName);
-                console.log('발령농도:'+json.list[i].issueVal);
-                console.log('해제농도:'+json.list[i].clearVal);
-                console.log('최고농도:'+json.list[i].maxVal);
-            }
-            }
-            count = 0;
-        });
-    }
-
-    yellow=(e)=>{
-        e.preventDefault();
-
-        const body = {
-            year: this.state.year
-        }
-
-        fetch('http://localhost:5000/yellow',{
-            method:"post",
-            headers: { "Content-Type":  "application/json" },
-            body: JSON.stringify(body),	
-        })
-        .then(res => res.json())    // 서버로부터 받음
-        .then(json => { 
-                console.log('황사지역:'+json.list[0].tmArea);
-                console.log('발령일:'+json.list[0].dataTime);
-                
-                }
-        );
     }
 
     selectSido=(e)=>{
